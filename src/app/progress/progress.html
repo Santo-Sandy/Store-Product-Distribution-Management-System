@@ -1,1 +1,118 @@
-<p>progress works!</p>
+<div class="container">
+    <div class="header-card">
+        <h1 class="title">Supplier to Store Tracking</h1>
+        <p class="subtitle">List of tracks on.</p>
+    </div>
+  <div class="wrapper">
+    <div class="main-card">
+      <div class="stage-controls">
+        <button
+          *ngFor="let stage of stages"
+          (click)="setCurrentStage(stage.id)"
+          [class.active]="currentStage === stage.id"
+          class="stage-button"
+        >
+          {{ stage.name }}
+        </button>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-line-bg">
+          <div class="progress-line-fill" [style.width.%]="getProgressPercentage()"></div>
+        </div>
+
+        <div class="stages-wrapper">
+          <div *ngFor="let stage of stages" class="stage-node">
+            <div
+              class="icon-circle"
+              [ngClass]="{
+                completed: getStageStatus(stage.id) === 'completed',
+                active: getStageStatus(stage.id) === 'active',
+                pending: getStageStatus(stage.id) === 'pending'
+              }"
+            >
+              <span
+                *ngIf="getStageStatus(stage.id) === 'completed'"
+                class="icon"
+                [innerHTML]="getIconSvg('check')"
+              ></span>
+              <span
+                *ngIf="getStageStatus(stage.id) !== 'completed'"
+                class="icon"
+                [innerHTML]="getIconSvg(stage.icon)"
+              ></span>
+            </div>
+
+            <div
+              class="stage-name"
+              [ngClass]="{
+                'text-completed': getStageStatus(stage.id) === 'completed',
+                'text-active': getStageStatus(stage.id) === 'active',
+                'text-pending': getStageStatus(stage.id) === 'pending'
+              }"
+            >
+              {{ stage.name }}
+            </div>
+
+            <div class="locations">
+              <div
+                *ngFor="let location of stage.locations"
+                class="location"
+                [ngClass]="{
+                  'location-active':
+                    getStageStatus(stage.id) === 'completed' ||
+                    getStageStatus(stage.id) === 'active',
+                  'location-pending': getStageStatus(stage.id) === 'pending'
+                }"
+              >
+                {{ location }}
+              </div>
+            </div>
+
+            <div *ngIf="getStageStatus(stage.id) === 'active'" class="status-badge">In Transit</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="details-card">
+        <h3 class="details-title">Current Status</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Current Stage</div>
+            <div class="stat-value stat-blue">{{ getCurrentStageName() }}</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Progress</div>
+            <div class="stat-value stat-green">{{ getProgressPercentage() }}%</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Stages Completed</div>
+            <div class="stat-value stat-gray">{{ getCompletedStages() }} / {{ stages.length }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <h3 class="product-title">Product Information</h3>
+      <div class="product-grid">
+        <div>
+          <span class="product-label">Product ID:</span>
+          <div class="product-value">PRD-2024-001</div>
+        </div>
+        <div>
+          <span class="product-label">Quantity:</span>
+          <div class="product-value">1,500 units</div>
+        </div>
+        <div>
+          <span class="product-label">Est. Delivery:</span>
+          <div class="product-value">Dec 25, 2025</div>
+        </div>
+        <div>
+          <span class="product-label">Priority:</span>
+          <div class="product-value product-priority">High</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

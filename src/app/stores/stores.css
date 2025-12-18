@@ -147,5 +147,5 @@
 }
 
 .view-btn:hover {
-  background-color: #163172;
+  background: linear-gradient(135deg,#184486,#ffa7ec);
 }

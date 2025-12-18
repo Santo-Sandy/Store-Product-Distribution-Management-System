@@ -12,13 +12,13 @@
     <div class="suppliers-grid">
         <div *ngFor="let supplier of filteredsuppliers()" class="suppliers-card">
             <div class="suppliers-info">
-                <h2>{{supplier.name}}<sub>&nbsp;
+                <h2>{{supplier.name}}<sup>&nbsp;
                     <span
                     class="status"
                     [class.active]="supplier.status==='Active'"
                     [class.inactive]="supplier.status==='Inactive'"
                     >{{supplier.status}}</span>
-                </sub></h2>
+                </sup></h2>
                 <p>{{supplier.city}}, {{supplier.state}}</p>
             </div>
             <button class="view-btn"><a href="/hubs">View details >>></a></button>

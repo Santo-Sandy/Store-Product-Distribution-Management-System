@@ -1,0 +1,311 @@
+.container {
+  min-height: 100vh;
+  background: whitesmoke;
+  font-family: 'Segoe UI',Arial, sans-serif;
+}
+
+.wrapper {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.header-card {
+  background: linear-gradient(135deg, #c671f7, #2d5481);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 45px 20px;
+  text-align: center;
+  color: #ffffff;
+
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.subtitle {
+  color: #ffffffd2;
+  margin: 0;
+}
+
+.main-card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.stage-controls {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.stage-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  background: #f3f4f6;
+  color: #4b5563;
+  transition: all 0.2s;
+}
+
+.stage-button:hover {
+  background: #e5e7eb;
+}
+
+.stage-button.active {
+  background: #3b82f6;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+}
+
+/* Progress Bar */
+.progress-container {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.progress-line-bg {
+  position: absolute;
+  top: 1.5rem;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #e5e7eb;
+}
+
+.progress-line-fill {
+  height: 100%;
+  background: linear-gradient(to right, #10b981, #3b82f6);
+  transition: width 0.5s ease-out;
+}
+
+/* Stage Nodes */
+.stages-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stage-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+}
+
+.icon-circle {
+  position: relative;
+  z-index: 10;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.icon-circle.completed {
+  background: #10b981;
+}
+
+.icon-circle.active {
+  background: #3b82f6;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.2);
+}
+
+.icon-circle.pending {
+  background: #d1d5db;
+}
+
+.icon {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon ::ng-deep svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Stage Name */
+.stage-name {
+  margin-top: 0.75rem;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.text-completed {
+  color: #059669;
+}
+
+.text-active {
+  color: #2563eb;
+}
+
+.text-pending {
+  color: #9ca3af;
+}
+
+/* Locations */
+.locations {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.location {
+  font-size: 0.75rem;
+}
+
+.location-active {
+  color: #4b5563;
+}
+
+.location-pending {
+  color: #9ca3af;
+}
+
+/* Status Badge */
+.status-badge {
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: #dbeafe;
+  color: #1e40af;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Details Card */
+.details-card {
+  background: linear-gradient(to right, #eff6ff, #eef2ff);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border: 1px solid #bfdbfe;
+}
+
+.details-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 1rem 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.stat-blue {
+  color: #2563eb;
+}
+
+.stat-green {
+  color: #059669;
+}
+
+.stat-gray {
+  color: #1f2937;
+}
+
+/* Product Card */
+.product-card {
+  margin-top: 1.5rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.product-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 1rem 0;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  font-size: 0.875rem;
+}
+
+.product-label {
+  color: #6b7280;
+}
+
+.product-value {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.product-priority {
+  color: #ea580c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .header-card {
+    padding: 1.5rem;
+  }
+
+  .main-card {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .stage-node {
+    width: auto;
+    min-width: 80px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
