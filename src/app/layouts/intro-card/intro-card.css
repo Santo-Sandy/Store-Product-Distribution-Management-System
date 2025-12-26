@@ -1,0 +1,79 @@
+.intro-card{
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 5px 20px 10px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background-color: white;
+    box-shadow: 0 6px 14px rgb(0, 0, 0,0.1);
+}
+.intro-info{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(155px,200px));
+}
+
+.intro-card h2{
+    font-size: 24px;
+    margin: 10px;
+    color: #2d5481;
+}
+
+.intro-card p{
+    border-radius: 8px;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+    display: inline;
+    background-color: rgba(58, 88, 112, 0.774);
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.status{
+    font-size: 12px;
+    border-radius: 12px;
+    font-weight: 600px;
+    padding: 4px 10px;
+}
+
+.status.medium{
+    background-color: #e8f6ef;
+    color: #1e8449;
+}
+
+.status.high{
+    background-color: #fdecea;
+    color: #922b21;
+}
+.status.normal{
+    background-color: #eaf5fd;
+    color: #215f92;
+}
+.status.low{
+    background-color: #f7eafd;
+    color: #6e2192;
+}
+.view-btn{
+    height: 60%;
+    max-height: 50px;
+    padding: 10px;
+    background-color:  #2d54a8;
+    border: none;
+    border-radius: 6px;
+    justify-self: end;
+    align-self: center;
+    color: white;
+    font-size: 16px;
+    font-weight: 600px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+
+
+.view-btn:hover{
+    background: white;
+    border: 1px solid #2d54a8;
+    color: #2d54a8;
+}

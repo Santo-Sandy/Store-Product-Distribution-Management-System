@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { IntroCard } from "../../layouts/intro-card/intro-card";
 
 @Component({
   selector: 'app-suppliers',
-  imports: [FormsModule, CommonModule, RouterOutlet],
+  imports: [FormsModule, CommonModule, RouterOutlet, IntroCard],
   templateUrl: './suppliers.html',
   styleUrl: './suppliers.css',
 })

@@ -1,7 +1,13 @@
 import { Routes } from '@angular/router';
-import { Home } from './home/home';
-import { About } from './about/about';
-import { Settings } from './settings/settings';
+import { Home } from './Pages/home/home';
+import { About } from './Pages/about/about';
+import { Settings } from './Pages/settings/settings';
+import { Stores } from './Pages/stores/stores';
+import { Suppliers } from './Pages/suppliers/suppliers';
+import { Hubs } from './Pages/hubs/hubs';
+import { Depos } from './Pages/depos/depos';
+import { Progress } from './Pages/progress/progress';
+import { Trackproduct } from './Pages/progress/trackproduct/trackproduct';
 
 export const routes: Routes = [
     {
@@ -25,33 +31,37 @@ export const routes: Routes = [
     },
     {
         path:'stores',
-        loadComponent:()=>import('./stores/stores').then(m=>m.Stores),
+        component:Stores,
         title:'Stores',
     },
     {
         path:'suppliers',
-        loadComponent:()=>import('./suppliers/suppliers').then(m=>m.Suppliers),
+        component:Suppliers,
         title:'Suppliers',
     },
     {
         path:'hubs',
-        loadComponent:()=>import('./hubs/hubs').then(m=>m.Hubs),
+        component:Hubs,
         title:'Hubs',
     },
     {
         path:'depos',
-        loadComponent:()=>import('./depos/depos').then(m=>m.Depos),
+        component:Depos,
         title:'Depos',
     },
     {
         path:'progress',
-        loadComponent:()=>import('./progress/progress').then(m=>m.Progress),
+        component:Progress,
         title:'Progress',
         children:[
-            {path:"trackproduct",
-                loadComponent:()=>import('./progress/trackproduct/trackproduct').then(m=>m.Trackproduct),
+            {path:'trackproduct/:id',
+                component:Trackproduct,
             }
         ]
+    },
+    {
+        path:'trackproduct/:id',
+        component:Trackproduct,
     },
     {
         path:'**',

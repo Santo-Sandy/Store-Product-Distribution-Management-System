@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="header-card">
+    <h1 class="title">Tracking Suppliers to Stores </h1>
+    <div class="search-container">
+      <input
+        type="text"
+        placeholder="Search hub by name or city"
+        [(ngModel)]="searchText"
+      />
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="products" *ngFor="let product of products;let i=index">
+      <app-intro-card [place]="product"></app-intro-card> 
+    </div> 
+  </div>
+</div>
+<router-outlet></router-outlet>

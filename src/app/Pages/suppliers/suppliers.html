@@ -1,0 +1,19 @@
+<div class="suppliers-container">
+    <div class="suppliers-header">
+        <h1>Suppliers List</h1>
+        <div class="search-container">
+            <input
+            type="text"
+            placeholder="Search suppliers list by name or city."
+            [(ngModel)]="searchText">
+        </div>
+    </div>
+    
+    <div class="suppliers-grid">
+        <div class="supplier" *ngFor="let supplier of filteredsuppliers()">
+            <app-intro-card [place]="supplier"></app-intro-card>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
