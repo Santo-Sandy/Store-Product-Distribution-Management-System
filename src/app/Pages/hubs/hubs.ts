@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { IntroCard } from "../../layouts/intro-card/intro-card";
 
 @Component({
   selector: 'app-hubs',
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule, CommonModule, IntroCard],
   templateUrl: './hubs.html',
   styleUrl: './hubs.css',
 })

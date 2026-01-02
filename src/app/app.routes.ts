@@ -7,6 +7,7 @@ import { Suppliers } from './Pages/suppliers/suppliers';
 import { Hubs } from './Pages/hubs/hubs';
 import { Depos } from './Pages/depos/depos';
 import { Progress } from './Pages/progress/progress';
+import { Supplier } from './Pages/suppliers/supplier/supplier';
 
 export const routes: Routes = [
     {
@@ -23,6 +24,12 @@ export const routes: Routes = [
         component: About,
         title:'About',
     },
+    {
+        path:'supplier',
+        component: Supplier,
+        title:'Supplier',
+    }
+    ,
     {
         path:'routes',
         loadComponent:()=>import ('./Pages/routes/routes').then(m=>m.Routes),

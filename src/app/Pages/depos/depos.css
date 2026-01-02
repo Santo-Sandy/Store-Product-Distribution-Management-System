@@ -9,8 +9,7 @@
     padding: 45px 20px 20px;
     color: #f4f6f9;
     text-align: center;
-    margin: 10px 20px;
-    border-radius: 10px;
+    margin: 0px 0px 10px;
 }
 
 .depos-header h1{
@@ -43,73 +42,7 @@
 }
 
 .depos-grid{
-    max-width: 1800px;
-    margin: 20px 10px;
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-content: center;
-    gap: 20px;
-}
-
-.depos-card{
-    margin: 0px;
-    width: 100%;
-    padding: 10px 20px;
-    border-radius: 8px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-    background-color: #ffffff;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-}
-
-.depos-info h2{
-    font-size: 22px;
-    color: #0f3460;
-    margin: 5px;
-}
-
-.depos-info p{
-    color: #444;
-    font-size: 14px;
-    margin: 15px;
-}
-
-.status {
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.status.active {
-    background-color: #e8f6ef;
-    color: #1e8449;
-}
-
-.status.inactive {
-    background-color: #fdecea;
-    color: #922b21;
-}
-
-.view-depo {
-    max-height: 60%;
-    padding: 10px;
-    background-color: #2d54a8;
-    border: none;
-    justify-self: end;
-    align-self: center;
-    font-size: 16px;
-    font-weight: bold;
-    color: #ffffff;
-    border-radius: 6px;
-    cursor: pointer;
-    }
-
-
-.view-depo:hover {
-    background: white;
-    border: 1px solid #2d54a8;
-    color: #2d54a8;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }

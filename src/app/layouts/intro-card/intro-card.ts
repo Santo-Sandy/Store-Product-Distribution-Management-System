@@ -21,7 +21,10 @@ export class IntroCard {
       this.route.navigate(['trackproduct',this.place.productId]);
     }
     if(this.place.storeData){
-      this.route.navigate(['store-details',this.place?.storeData?.name])
+      this.route.navigate(['store-details',this.place?.storeData?.name]);
+    }
+    if(this.place.city){
+      this.route.navigate(['supplier']);
     }
   }
 
