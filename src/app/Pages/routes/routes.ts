@@ -20,7 +20,7 @@ export class Routes {
   viewMode: 'all' | 'by-store' | 'single-path' = 'all';
   ;
 
-  constructor(private supplyChainService: RoutesData) {}
+  constructor(public supplyChainService: RoutesData) {}
 
   ngOnInit(): void {
     this.supplyChainService.nodes$.subscribe(nodes => {
@@ -55,6 +55,13 @@ export class Routes {
 
   showAllPaths(): void {
     this.viewMode = 'all';
+    this.selectedStore = null;
+    this.selectedPath = null;
+    this.filteredPaths = this.allPaths;
+  }
+
+  showRoutesByStore(): void {
+    this.viewMode = 'by-store';
     this.selectedStore = null;
     this.selectedPath = null;
     this.filteredPaths = this.allPaths;

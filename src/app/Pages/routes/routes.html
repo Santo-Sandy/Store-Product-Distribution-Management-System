@@ -1,10 +1,7 @@
-
-    <div class="routes-header">
-        <h1 class="main-title">Supply Chain Route Management</h1>
-        <p class="subtitle">Visualize and manage multiple supply chain paths</p>
-    </div>
+<div class="routes-header">
+    <h1 class="main-title">Route Management</h1>
+</div>
 <div class="routes-container">
-    <!-- View Mode Selector -->
     <div class="view-selector">
         <button 
         class="view-btn"
@@ -16,19 +13,12 @@
         <button 
         class="view-btn"
         [class.active]="viewMode === 'by-store'"
+        (click)="showRoutesByStore()"
         >
         By Store
         </button>
-        <button 
-        class="view-btn"
-        [class.active]="viewMode === 'single-path'"
-        >
-        Single Path
-        </button>
     </div>
-
-    <!-- Store Selector (for by-store view) -->
-    <div class="store-selector" *ngIf="viewMode === 'by-store' || viewMode === 'all'">
+    <div class="store-selector" *ngIf="viewMode === 'by-store'">
     <h3>Select Store to View Routes</h3>
         <div class="store-grid">
         <div 
@@ -39,7 +29,8 @@
         >
             <h4>{{ store.name }}</h4>
             <p>{{ store.location }}</p>
-            <span class="path-count">paths
+            <span class="path-count">
+            {{supplyChainService.getPathsForStore(store.id).length}} paths
             </span>
         </div>
         </div>
@@ -69,10 +60,10 @@
                 </div>
             </div>
             <div class="path-flow">
-            <span *ngFor="let node of path.nodes; let i = index">
-                {{ node.type }}
-                <span *ngIf="i < path.nodes.length - 1"> → </span>
-                </span>
+            <span *ngFor="let node of path.nodes; let i = index" [ngClass]="getNodeTypeClass(node.type)" class="node-type-badge">
+                {{i+1}}. {{ node.type }}
+                <span *ngIf="i < path.nodes.length - 1"></span>
+            </span>
             </div>
         </div>
         </div>
@@ -122,8 +113,6 @@
     </div>
 
     <div class="single-path-section" *ngIf="viewMode === 'single-path' && selectedPath">
-        <button class="back-btn" (click)="showAllPaths()">← Back to All Paths</button>
-        
         <h2>{{ selectedPath.name }}</h2>
         
         <div class="path-metrics">
@@ -203,5 +192,5 @@
         </div>
         </div>
     </div>
-    </div>
+</div>
 
