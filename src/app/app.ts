@@ -1,16 +1,60 @@
-import { ApplicationConfig, Component, mergeApplicationConfig, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {  Component, signal } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
-
+import { MatIconModule, MatIcon } from '@angular/material/icon'
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLinkWithHref],
+  imports: [RouterOutlet, RouterLinkWithHref, CommonModule, FormsModule, ReactiveFormsModule, MatIcon],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   protected readonly title = signal('sample');
- 
+  
+
+  commentForm: FormGroup;
+  currentYear: number = new Date().getFullYear();
+
+  features = [
+    'Multi-store inventory synchronization',
+    'Automated supplier ordering',
+    'Real-time delivery tracking',
+    'Analytics and reporting dashboard',
+    '24/7 technical support'
+  ];
+
+  constructor(private fb: FormBuilder) {
+    this.commentForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      company: ['', Validators.required],
+      message: ['', Validators.required]
+    });
+  }
+
+  onSubmit() {
+    if (this.commentForm.valid) {
+      const formData = this.commentForm.value;
+      alert(`Thank you for your message, ${formData.name}!\n\nWe have received your inquiry and will respond to ${formData.email} within 24 hours.`);
+      this.commentForm.reset();
+    } else {
+      this.markFormGroupTouched(this.commentForm);
+    }
+  }
+
+  markFormGroupTouched(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(key => {
+      const control = formGroup.get(key);
+      control?.markAsTouched();
+    });
+  }
+
+  isFieldInvalid(fieldName: string): boolean {
+    const field = this.commentForm.get(fieldName);
+    return !!(field && field.invalid && field.touched);
+  }
 
 }
