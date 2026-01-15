@@ -29,7 +29,7 @@
     width: 100%;
     max-width: 450px;
     margin: 16px;
-    animation: slideUp 0.3s ease-out;
+    animation: slideUp 0.3s ease-in-out;
 }
 
 @keyframes slideUp {
@@ -248,7 +248,7 @@
 /* Social Buttons */
 .social-buttonsh {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
     margin-bottom: 24px;
 }
@@ -306,15 +306,13 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .hero-title {
-    font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-    font-size: 1rem;
-    }
-
     .modal-bodyh {
     padding: 1.5rem;
+    }
+}
+
+@media (max-height: 700px) {
+    .modal-containerh {
+    transform: scale(0.8);
     }
 }
